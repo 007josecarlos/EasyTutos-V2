@@ -1,0 +1,17 @@
+.carousel-image{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.navbar-custom {
+    background-color: #FF7940;
+}
+
+.navbar-custom .nav-link {
+    color: white ;
+}
+
+.card{
+    width: 18rem;
+}
