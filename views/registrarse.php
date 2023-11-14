@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include 'header.php'; ?>
 <?php include 'nav.php'; ?>
 <!-- Título de la sección -->
@@ -15,7 +16,7 @@
     <div class="col-sm-6">
       <form>
         <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
+          <label for="nombre" class="form-label">Nombre</label>
           <input type="text" class="form-control" id="nombre" required>
         </div>
 
@@ -35,7 +36,7 @@
 
         <div class="mb-3">
           <label for="password" class="form-label">Confirmar contraseña</label>
-          <input type="password" class="form-control" id="password" required>
+          <input type="password" class="form-control" id="passwordRepeat" required>
         </div>
 
         <div class="mb-3">
@@ -43,10 +44,13 @@
           <input type="text" class="form-control" id="num-tel" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="button" class="btn btn-primary" onclick="verificarRegistro()">Registrar</button>
       </form>
     </div>
   </div>
 </div>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="../public/Js/logica/registrarse.js"></script>
+<script src="../public/Js/librerias/sweetalert2.min.js"></script>
+<!--<script src="../public/Js/librerias/jquery-3.6.0.min.js"></script>-->
 <?php include 'footer.php'; ?>
