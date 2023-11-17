@@ -8,6 +8,46 @@
     background-color: #FF7940;
 }
 
+.orange-button{
+    background-color: #FF7940;
+    color: white;
+    border-color: transparent;
+    border-radius: 1px;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 5px 15px;
+    height: min-content;
+    width: max-content;
+}
+
+.blue-button{
+    background-color: #415ee2;
+    color: white;
+    border-color: transparent;
+    border-radius: 1px;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 5px 15px;
+    height: min-content;
+    width: max-content;
+}
+
+.section-header{
+    border-bottom: solid black 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.twoButtons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.plusButton{
+    color: #415ee2;
+    font-weight: bolder;
+}
+
 .navbar-custom .nav-link {
     color: white ;
 }
