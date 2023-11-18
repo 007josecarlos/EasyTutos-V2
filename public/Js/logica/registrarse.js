@@ -76,7 +76,7 @@ function ajaxRegistro(usuario){
     },
     type: "POST",
     dataType: "json",
-    url: "/EasyTutos/controllers/accion/registro.php"
+    url: "../controllers/accion/registro.php"
 })
  .done(function(response) {
     var mens=response.msg;  

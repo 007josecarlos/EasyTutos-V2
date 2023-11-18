@@ -7,9 +7,11 @@ $contraseña = filter_input(INPUT_POST,'contraseña');
 $usuario = autenticarUsuario($email, $contraseña);
 $ruta="";
 $msg="";
+$ruta="";
 $tipo="success";
 if($usuario != null){
-    $msg="el usuario ingresado si existe.";
+    $_SESSION['usuario'] = $email;
+    $ruta="../views/perfil_monitor.php";
     $tipo="success";
 }
 else{
@@ -18,7 +20,8 @@ else{
 }
 $resultado = [
     "msg" => $msg,
-    "type" => $tipo
+    "type" => $tipo,
+    "ruta" => $ruta
 ]; //Vector PHP
 
 echo json_encode($resultado); // Convirtiendo en jSon

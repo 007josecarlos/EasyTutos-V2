@@ -49,7 +49,7 @@ function ajaxLogin(correo, contraseña){
     },
     type: "POST",
     dataType: "json",
-    url: "/EasyTutos/controllers/accion/autenticarLogin.php"
+    url: "../controllers/accion/autenticarLogin.php"
     })
 .done(function(response) {
     var mens=response.msg;
@@ -61,6 +61,9 @@ function ajaxLogin(correo, contraseña){
             title: "Login"
 
         });
+    }
+    else{
+      $(location).attr('href',response.ruta);
     }
 })
 .fail(function(jqXHR, textStatus, errorThrown) {
