@@ -46,7 +46,7 @@ session_start();
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
           </ul>
         </li>
       </ul>

@@ -1,6 +1,5 @@
 var contraseña=document.getElementById("password");
 var contraseñaRep=document.getElementById("passwordRepeat");
-var letras="abcdefghyjklmnñopqrstuvwxyz";
 function verificarRegistro(){
   let contraseñaUser=contraseña.value;
   let contraseñaUserRep=contraseñaRep.value;
@@ -32,19 +31,19 @@ function verificarRegistro(){
     });
     return null;
   }
-  if (nombres=="" || !tieneLetras(nombres)){
+  if (nombres=="" || /\d/.test(nombres)){
     Swal.fire({
       icon:"error",
       title: "error",
-      text: "no ha ingresado su nombre o apellidos."
+      text: "no ha ingresado su nombre o tiene un numero en el nombre."
     });
     return null;
   }
-  if (apellidos=="" || !tieneLetras(nombres)){
+  if (apellidos=="" || /\d/.test(apellidos)){
     Swal.fire({
       icon:"error",
       title: "error",
-      text: "no ha ingresado su apellido o apellidos."
+      text: "no ha ingresado su apellido o tiene un numero en el apellido."
     });
     return null;
   }
@@ -58,15 +57,6 @@ function verificarRegistro(){
   }
   let usuario=[correo, contraseñaUser, nombres, apellidos, telefono];
   ajaxRegistro(usuario);
-}
-function tieneLetras(texto){
-  texto = texto.toLowerCase();
-  for(i=0; i<texto.length; i++){
-     if (letras.indexOf(texto.charAt(i),0)!=-1){
-        return true;
-     }
-  }
-  return false;
 }
 function ajaxRegistro(usuario){
   let usuarioAux=JSON.stringify(usuario);

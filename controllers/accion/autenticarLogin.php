@@ -14,6 +14,7 @@ if($usuario != null){
     $_SESSION['usuario'] = $email;
     $_SESSION['nombre'] = $usuario->getNombre()." ".$usuario->getApellido();
     $_SESSION['tipoUsuario'] = $usuario->getIdTipoUsuario();
+    $_SESSION['telefono'] = $usuario->getTelefono();
     if($usuario->getIdTipoUsuario()== 0){
         $ruta="../views/dasbohar-estudiante.php";
     }

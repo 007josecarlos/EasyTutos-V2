@@ -37,7 +37,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -56,10 +56,10 @@
   <div class="row">
     <!-- Datos monitor -->
     <div class="col-sm-6">
-      <h4>Nombre:</h4>
+      <h4>Nombre: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?></h4>
       <h4>Asignaturas: Sistemas operativos II</h4>
-      <h4>Correo electronico: alguien@domain.com</h4>
-      <h4>Numero de telefono: 123 45678910</h4>
+      <h4>Correo electronico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
+      <h4>Numero de telefono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
       <h4>Estado: activo</h4>
     </div>
     <!-- Foto monitor -->
