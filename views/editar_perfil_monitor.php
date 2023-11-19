@@ -51,10 +51,12 @@
   <div class="row">
     <!-- Datos monitor -->
     <div class="col-sm-6">
-      <h4>Nombre: Jhon Doe</h4>
-      <h4>Asignaturas: Sistemas operativos II</h4>
+      <label for="name">Nombre: </label>
+      <input type="text" id="name" name="name" value=""><br><br>
+      <!-- <h4>Asignaturas: Sistemas operativos II</h4>-->
       <h4>Correo electronico: alguien@domain.com</h4>
-      <h4>Numero de telefono: 123 45678910</h4>
+      <label for="phone">Númeor de teléfono: </label>
+      <input type="text" id="phone" name="phone" value=""><br><br>
       <h4>Estado: activo</h4>
     </div>
     <!-- Foto monitor -->
@@ -64,7 +66,7 @@
   </div>
   <div class="container mt-5 mb-5">
     <div class="twoButtons">
-        <button class="orange-button" href="perfil_monitor.php">Cancelar</button>
+        <button class="orange-button" onclick="window.location.href='perfil_monitor.php'">Cancelar</button>
         <button class="blue-button">Guardar cambios</button>
     </div>
   </div>

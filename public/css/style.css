@@ -36,6 +36,7 @@
     border-bottom: solid black 3px;
     display: flex;
     justify-content: space-between;
+    margin-top: 3%;
 }
 
 .twoButtons{

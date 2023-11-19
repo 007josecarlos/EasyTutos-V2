@@ -11,19 +11,19 @@
     <!-- Datos monitoria -->
     <div class="col-sm-6">
       <form>
-        <label for="title">Titulo:</label><br>
-        <input type="text" id="title" name="titulo" value="Nueva monitoria"><br><br>
+        <!-- Sin usar <label for="title">Titulo:</label><br>
+        <input type="text" id="title" name="titulo" value="Nueva monitoria"><br><br>-->
         <label for="subject">Materia:</label><br>
-        <select id="subject" name="materia">
+        <select id="subject" name="subject">
           <option value="SO">Sistemas operativos</option>
           <option value="Web">Programacion web</option>
           <option value="IA">Inteligencia artificial</option>
           <option value="CalVec">Calculo vectorial</option>
         </select><br><br>
         <label for="time">Franja horaria:</label><br>
-        <input type="text" id="time" name="franja" value="2:00 PM - 6:00 PM"><br><br>
+        <input type="text" id="time" name="time" value="2:00 PM - 6:00 PM"><br><br>
         <label for="location">Ubicación:</label><br>
-        <input type="text" id="location" name="ubicacion" value=""><br><br>
+        <input type="text" id="location" name="location" value=""><br><br>
       </form>
     </div>
     <!-- Foto monitoria -->

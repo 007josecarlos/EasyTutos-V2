@@ -57,14 +57,11 @@
     <!-- Datos monitor -->
     <div class="col-sm-6">
       <h4>Nombre: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?></h4>
-      <h4>Asignaturas: Sistemas operativos II</h4>
       <h4>Correo electronico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
       <h4>Numero de telefono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
-      <h4>Estado: activo</h4>
     </div>
 </div>
 
-<?php include 'card-monitorias.php'; ?>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../public/Js/librerias/sweetalert2.min.js"></script>
 <!--<script src="../public/Js/librerias/jquery-3.6.0.min.js"></script>-->
