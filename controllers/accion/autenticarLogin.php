@@ -9,9 +9,21 @@ $ruta="";
 $msg="";
 $ruta="";
 $tipo="success";
+
 if($usuario != null){
     $_SESSION['usuario'] = $email;
-    $ruta="../views/perfil_monitor.php";
+    $_SESSION['nombre'] = $usuario->getNombre()." ".$usuario->getApellido();
+    $_SESSION['tipoUsuario'] = $usuario->getIdTipoUsuario();
+    if($usuario->getIdTipoUsuario()== 0){
+        $ruta="../views/dasbohar-estudiante.php";
+    }
+    if($usuario->getIdTipoUsuario()== 1){
+        $ruta="../views/perfil_monitor.php";
+    }
+    if($usuario->getIdTipoUsuario()== 2){
+        $ruta="../views/perfilAdmin.php";
+    }
+
     $tipo="success";
 }
 else{
