@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2023 a las 18:49:43
+-- Tiempo de generación: 20-11-2023 a las 02:48:26
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -55,6 +55,13 @@ CREATE TABLE `listamateriasmonitor` (
   `idMateria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `listamateriasmonitor`
+--
+
+INSERT INTO `listamateriasmonitor` (`idMonitor`, `idMateria`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -69,6 +76,13 @@ CREATE TABLE `materias` (
   `monitores` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `materias`
+--
+
+INSERT INTO `materias` (`idMateria`, `nombre`, `creditos`, `semestre`, `monitores`) VALUES
+(1, 'Calculo Diferencial', 4, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +94,13 @@ CREATE TABLE `monitores` (
   `calificacion` double DEFAULT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `monitores`
+--
+
+INSERT INTO `monitores` (`idMonitor`, `calificacion`, `idUsuario`) VALUES
+(1, NULL, 24);
 
 -- --------------------------------------------------------
 
@@ -152,7 +173,7 @@ CREATE TABLE `usuarios` (
   `contraseña` varchar(260) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `nombre` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `apellido` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
-  `telefono` int(11) NOT NULL,
+  `telefono` bigint(11) NOT NULL,
   `tipo` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -161,7 +182,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `username`, `contraseña`, `nombre`, `apellido`, `telefono`, `tipo`) VALUES
-(7, 'ojpadillac@gmail.com', '$2y$10$NLxHOM.0U/F2m3PA.tPhheB.piqLnCHPiPxdpcWJ6efyjRZFxRkMW', 'orlando', 'padilla', 1234567890, 1);
+(7, 'ojpadillac@gmail.com', '$2y$10$NLxHOM.0U/F2m3PA.tPhheB.piqLnCHPiPxdpcWJ6efyjRZFxRkMW', 'orlando', 'padilla', 1234567890, 1),
+(24, 'orlandoescarraga@hotmail.com', '$2y$10$QKyI0.mpm9x3.8kdFIfYSeDPfM2UYy0M58l/TLGBKRvooueat8Xqa', 'juan', 'ortega', 1234567890, 1),
+(25, 'josecacer12@hotmail.com', '$2y$10$w499f/.K9P9J7qzA9HN43.Wz.k/Ox.h9b5J8HwfvmkI.NwuoUtaAm', 'jose', 'caceres', 1234567890, 0),
+(26, 'admin@gmail.com', '$2y$10$f6y5N9Vyj00/RLJMIM7Fxu9hYJpGsIK0NJ/LD1TCM7qN3D.ubsQJ2', 'juan', 'quintero', 1234567890, 2),
+(34, 'lacasonacienaga@gmail.com', '$2y$10$yuPaOlQtGQFv7DYkT6QNw.xO9yzRYx6bzVvNiwBYhnHxCFByeS1D.', 'orlando', 'padilla', 3003251020, 1);
 
 --
 -- Índices para tablas volcadas
@@ -245,7 +270,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restricciones para tablas volcadas

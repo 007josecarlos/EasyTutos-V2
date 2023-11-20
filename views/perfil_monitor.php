@@ -57,7 +57,7 @@
     <!-- Datos monitor -->
     <div class="col-sm-6">
       <h4>Nombre: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?></h4>
-      <!-- Desabilitado temporalmente <h4>Asignaturas: Sistemas operativos </h4>-->
+      <h4>Asignaturas: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['materias'];}?> </h4>
       <h4>Correo electronico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
       <h4>Numero de telefono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
       <h4>Estado: activo</h4>
