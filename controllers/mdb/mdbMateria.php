@@ -1,9 +1,9 @@
 <?php 
 require_once (__DIR__."/../../models/DAO/materiaDAO.php");
 
-function obtenerMateria($idUsuario){
+function obtenerMateria($idMaterias){
     $dao=new MateriaDAO();
-    $materias = $dao->obtenerMateria($idUsuario);
+    $materias = $dao->obtenerMateria($idMaterias);
     return $materias;
 }
 

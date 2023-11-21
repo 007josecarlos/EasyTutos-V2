@@ -2,6 +2,8 @@
 session_start();
 require_once (__DIR__."/../mdb/mdbUsuario.php");
 require_once (__DIR__."/../mdb/mdbMateria.php");
+require_once (__DIR__."/../mdb/mdbMonitor.php");
+require_once (__DIR__."/../mdb/mdbListamateriasmonitor.php");
 
 $email = filter_input(INPUT_POST,'email');
 $contraseña = filter_input(INPUT_POST,'contraseña');
@@ -24,7 +26,9 @@ if($usuario != null){
     }
     if($usuario->getIdTipoUsuario()== 1){
         $ruta="../views/perfil_monitor.php";
-        $materias=obtenerMateria($idUsuario);
+        $idMonitor=obtenerIdMonitor($idUsuario);
+        $idMaterias=obtenerIdMateria($idMonitor);
+        $materias=obtenerMateria($idMaterias);
         $nMaterias=count($materias);
         for($i=0; $i<$nMaterias; $i++){
             $materias[$i] = $materias[$i]->getNombre();
