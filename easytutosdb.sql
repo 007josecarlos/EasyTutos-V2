@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2023 a las 02:48:26
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 23-11-2023 a las 22:34:44
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -81,7 +81,8 @@ CREATE TABLE `materias` (
 --
 
 INSERT INTO `materias` (`idMateria`, `nombre`, `creditos`, `semestre`, `monitores`) VALUES
-(1, 'Calculo Diferencial', 4, 1, 2);
+(1, 'Calculo Diferencial', 4, 1, 2),
+(4, 'Programacion Web', 4, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -265,6 +266,12 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `materias`
+--
+ALTER TABLE `materias`
+  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
