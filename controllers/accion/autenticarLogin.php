@@ -10,7 +10,6 @@ $contraseña = filter_input(INPUT_POST,'contraseña');
 $usuario = autenticarUsuario($email, $contraseña);
 $ruta="";
 $msg="";
-$ruta="";
 $materias=[];
 $materias=null;
 $tipo="success";
@@ -27,13 +26,18 @@ if($usuario != null){
     if($usuario->getIdTipoUsuario()== 1){
         $ruta="../views/perfil_monitor.php";
         $idMonitor=obtenerIdMonitor($idUsuario);
-        $idMaterias=obtenerIdMateria($idMonitor);
-        $materias=obtenerMateria($idMaterias);
-        $nMaterias=count($materias);
-        for($i=0; $i<$nMaterias; $i++){
-            $materias[$i] = $materias[$i]->getNombre();
+        if($idMonitor != null){
+            $idMaterias=obtenerIdMateria($idMonitor);
+            $materias=obtenerMateria($idMaterias);
+            $nMaterias=count($materias);
+            for($i=0; $i<$nMaterias; $i++){
+                $materias[$i] = $materias[$i]->getNombre();
+            }
+            $_SESSION['materias'] = implode(",",$materias);
         }
-        $_SESSION['materias'] = implode(",",$materias);
+        else{
+            $_SESSION['materias'] = "sin materias asignadas";
+        }
     }
     if($usuario->getIdTipoUsuario()== 2){
         $ruta="../views/perfilAdmin.php";

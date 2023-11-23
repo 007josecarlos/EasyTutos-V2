@@ -22,5 +22,28 @@ class MateriaDAO{
         }
         return $materiasMon;
     }
+    function guardarMateria($materia){
+        $nombre=$materia->getNombre();
+        $creditos=$materia->getCreditos();
+        $semestre=$materia->getSemestre();
+        $materiaGuardada=new Materia(NULL,$nombre,$creditos,$semestre,NULL);
+        $consulta = "INSERT INTO materias (nombre, creditos, semestre) VALUES('$nombre', '$creditos', '$semestre')";
+
+        $conexionAux=conexionSqli();
+        $verificarMateria=mysqli_query($conexionAux, "SELECT * FROM materias WHERE nombre='$nombre'");
+        mysqli_close($conexionAux);
+        
+        if(mysqli_num_rows($verificarMateria) > 0){
+            return null;
+        }
+        $conexionInsertar=conexionSqli();
+        mysqli_query($conexionInsertar, $consulta);
+        if(mysqli_affected_rows($conexionInsertar)>0){
+            mysqli_close($conexionInsertar);
+            return $materiaGuardada;  
+        }
+        mysqli_close($conexionInsertar);
+
+    }
 }
 ?>

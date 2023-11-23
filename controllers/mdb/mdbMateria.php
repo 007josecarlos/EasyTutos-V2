@@ -7,5 +7,11 @@ function obtenerMateria($idMaterias){
     return $materias;
 }
 
+function guardarMateria($materia){
+    $dao=new MateriaDAO();
+    $materia = $dao->guardarMateria($materia);
+    return $materia;
+}
+
 
 ?>

@@ -59,7 +59,9 @@
       <h4>Nombre: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?></h4>
       <h4>Correo electronico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
       <h4>Numero de telefono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
+      <button type="button" onclick="window.location.href='agregarMateria.php'" class="btn btn-primary">Agregar materia</button><br><br>
     </div>
+    
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
