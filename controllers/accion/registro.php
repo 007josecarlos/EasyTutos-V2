@@ -17,7 +17,7 @@ $Usuario= new Usuario(NULL, $email, $hashContraseña, $nombre, $apellido, $telef
 $registro = registrarUsuario($Usuario);
 
 if($registro != null){    
-    $tipo="success"; //Con éxit
+    $tipo="success";
     $msg="la cuenta se creo correctamente.";
         
 }

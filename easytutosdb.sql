@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2023 a las 22:34:44
+-- Tiempo de generación: 24-11-2023 a las 05:01:18
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -162,6 +162,13 @@ CREATE TABLE `ubicaciones` (
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `ubicaciones`
+--
+
+INSERT INTO `ubicaciones` (`idUbicacion`, `nombre`) VALUES
+(0, 'a');
+
 -- --------------------------------------------------------
 
 --
@@ -171,7 +178,7 @@ CREATE TABLE `ubicaciones` (
 CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
   `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
-  `contraseña` varchar(260) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `contrasenia` varchar(260) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `nombre` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `apellido` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `telefono` bigint(11) NOT NULL,
@@ -182,7 +189,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `username`, `contraseña`, `nombre`, `apellido`, `telefono`, `tipo`) VALUES
+INSERT INTO `usuarios` (`idUsuario`, `username`, `contrasenia`, `nombre`, `apellido`, `telefono`, `tipo`) VALUES
 (7, 'ojpadillac@gmail.com', '$2y$10$NLxHOM.0U/F2m3PA.tPhheB.piqLnCHPiPxdpcWJ6efyjRZFxRkMW', 'orlando', 'padilla', 1234567890, 1),
 (24, 'orlandoescarraga@hotmail.com', '$2y$10$QKyI0.mpm9x3.8kdFIfYSeDPfM2UYy0M58l/TLGBKRvooueat8Xqa', 'juan', 'ortega', 1234567890, 1),
 (25, 'josecacer12@hotmail.com', '$2y$10$w499f/.K9P9J7qzA9HN43.Wz.k/Ox.h9b5J8HwfvmkI.NwuoUtaAm', 'jose', 'caceres', 1234567890, 0),
@@ -274,10 +281,16 @@ ALTER TABLE `materias`
   MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `monitorias`
+--
+ALTER TABLE `monitorias`
+  MODIFY `idMonitoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Restricciones para tablas volcadas

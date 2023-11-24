@@ -4,13 +4,14 @@ require_once(__DIR__."/../entidad/usuario.php");
 class UsuarioDAO{
     function registrarUsuario($Usuario){
         $usuario = $Usuario->getNombreUsuario();
+        echo $usuario;
         $contraseña = $Usuario->getContraseña();
         $nombre = $Usuario->getNombre();
         $apellido = $Usuario->getApellido(); 
         $telefono = $Usuario->getTelefono();
         $tipo = $Usuario->getIdTipoUsuario();
         $usuarioRegistrado = new Usuario(NULL, $usuario, $contraseña, $nombre, $apellido, $telefono, $tipo) ;
-        $consulta = "INSERT INTO usuarios (username, contraseña, nombre, apellido, telefono, tipo) 
+        $consulta = "INSERT INTO usuarios (username, contrasenia, nombre, apellido, telefono, tipo) 
                      VALUES('$usuario', '$contraseña', '$nombre', '$apellido', '$telefono', '$tipo')";
 
         $conexionAux=conexionSqli();
@@ -21,7 +22,7 @@ class UsuarioDAO{
             return null;
         }
         $conexionInsertar=conexionSqli();
-        mysqli_query($conexionInsertar, $consulta);
+        mysqli_query($conexionInsertar,$consulta);
         if(mysqli_affected_rows($conexionInsertar)>0){
             mysqli_close($conexionInsertar);
             return $usuarioRegistrado;  
@@ -50,6 +51,27 @@ class UsuarioDAO{
                 $usuarioConsul[6],
             );
             }
+        }
+        return $usuario;
+    }
+    function obtenerIdUsuario($correo){
+        $consulta = "SELECT * FROM usuarios WHERE username ='$correo'";
+        $conexion = conexionSqli();
+        $consultaUsuario = mysqli_query($conexion, $consulta);
+        mysqli_close($conexion);
+        $usuario = null;
+        $usuarioConsul = null;
+        if(mysqli_num_rows($consultaUsuario) == 1){
+            $usuarioConsul = mysqli_fetch_row($consultaUsuario);
+                $usuario = new Usuario(
+                $usuarioConsul[0],
+                $usuarioConsul[1],
+                $usuarioConsul[2],
+                $usuarioConsul[3],
+                $usuarioConsul[4],
+                $usuarioConsul[5],
+                $usuarioConsul[6],
+            );
         }
         return $usuario;
     }

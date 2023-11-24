@@ -43,7 +43,26 @@ class MateriaDAO{
             return $materiaGuardada;  
         }
         mysqli_close($conexionInsertar);
-
+    }
+    function obtenerMateriaPorNombre($materia){
+        $consulta = "SELECT * FROM materias WHERE nombre ='$materia'";
+        $conexion = conexionSqli();
+        $consultaMateria = mysqli_query($conexion, $consulta);
+        mysqli_close($conexion);
+        $materia = null;
+        $materiaConsul = null;
+        if(mysqli_num_rows($consultaMateria) == 1){
+            $materiaConsul = mysqli_fetch_row($consultaMateria);
+                $materia = new Materia(
+                $materiaConsul[0],
+                $materiaConsul[1],
+                $materiaConsul[2],
+                $materiaConsul[3],
+                $materiaConsul[4],
+            );
+        }
+        
+        return $materiaConsul[0];
     }
 }
 ?>

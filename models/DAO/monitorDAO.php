@@ -14,6 +14,24 @@ class MonitorDAO{
         mysqli_close($conexion);
         return $idMonitor;
     }
+    function crearMonitor($idUsuario){
+        $monitorCreado=new Monitor(NULL,NULL,$idUsuario);
+        $consulta = "INSERT INTO monitores (idUsuario) VALUES('$idUsuario')";
+        $conexionAux=conexionSqli();
+        $verificarMonitor=mysqli_query($conexionAux, "SELECT * FROM monitores WHERE idUsuario='$idUsuario'");
+        mysqli_close($conexionAux);
+        
+        if(mysqli_num_rows($verificarMonitor) > 0){
+            return null;
+        }
+        $conexionInsertar=conexionSqli();
+        mysqli_query($conexionInsertar, $consulta);
+        if(mysqli_affected_rows($conexionInsertar)>0){
+            mysqli_close($conexionInsertar);
+            return $monitorCreado;  
+        }
+        mysqli_close($conexionInsertar);
+    }
 }
 
 ?>

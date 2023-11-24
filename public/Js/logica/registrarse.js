@@ -67,7 +67,7 @@ function ajaxRegistro(usuario){
     type: "POST",
     dataType: "json",
     url: "../controllers/accion/registro.php"
-})
+  })
  .done(function(response) {
     var mens=response.msg;  
     if(mens!=""){

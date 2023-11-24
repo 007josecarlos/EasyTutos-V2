@@ -6,4 +6,11 @@ function obtenerIdMonitor($idUsuario){
     $idMonitor = $dao->obtenerIdMonitor($idUsuario);
     return $idMonitor;
 }
+
+function crearMonitor($idUsuario){
+    $dao=new MonitorDAO();
+    $idMonitor = $dao->crearMonitor($idUsuario);
+    return $idMonitor;
+}
+
 ?>

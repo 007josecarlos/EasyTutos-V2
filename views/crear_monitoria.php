@@ -1,6 +1,46 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
-<?php include 'nav.php'; ?>
+<!-- Barra de navegación dasbohar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../public/img/logo.png" width="40" height="40" class="d-inline-block align-text-top">
+      EasyTutos
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+
+      </ul>
+
+      <ul class="navbar-nav ml-auto me-5">
+        <li class="nav-item">
+          <a class="nav-link px-3" href="#">
+            <span class="material-icons">notifications</span>
+            <span class="badge badge-pill badge-warning position-absolute">10</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav me-5">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://randomuser.me/api/portraits/men/94.jpg" alt="John Doe" width="40" class="border mp-1 rounded-circle">
+            <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
 <!-- Título de la sección -->
 <div class="container mt-5 d-flex flex-column align-items-center">
   <h2>Titulo de monitoria</h2>
@@ -13,17 +53,16 @@
       <form>
         <!-- Sin usar <label for="title">Titulo:</label><br>
         <input type="text" id="title" name="titulo" value="Nueva monitoria"><br><br>-->
+        <p id="correo" hidden><?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></p>
         <label for="subject">Materia:</label><br>
         <select id="subject" name="subject">
-          <option value="SO">Sistemas operativos</option>
           <option value="Web">Programacion web</option>
-          <option value="IA">Inteligencia artificial</option>
-          <option value="CalVec">Calculo vectorial</option>
+          <option value="CalVec">Calculo diferencial</option>
         </select><br><br>
         <label for="time">Franja horaria:</label><br>
-        <input type="text" id="time" name="time" value="2:00 PM - 6:00 PM"><br><br>
+        <input type="datetime-local" id="time" name="time" min="<?php date_default_timezone_set('America/Bogota'); echo date("Y-m-d\TH:i");?>"><br><br>
         <label for="location">Ubicación:</label><br>
-        <input type="text" id="location" name="location" value=""><br><br>
+        <input type="text" id="location" name="location"><br><br>
       </form>
     </div>
     <!-- Foto monitoria -->
@@ -33,13 +72,14 @@
   </div>
   <div class="container mt-5 mb-5">
     <div class="twoButtons">
-        <button class="blue-button" href="perfil_monitor.php">Guardar</button>
-        <button class="orange-button" href="perfil_monitor.php">Cancelar</button>
+        <button type="button" class="blue-button" onclick="agregarMonitoria()">Guardar</button>
+        <button class="orange-button" onclick="window.location.href='perfil_monitor.php'">Cancelar</button>
     </div>
   </div>
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="../public/Js/logica/crearMonitoria.js"></script>
 <script src="../public/Js/librerias/sweetalert2.min.js"></script>
 <!--<script src="../public/Js/librerias/jquery-3.6.0.min.js"></script>-->
 <?php include 'footer.php'; ?>

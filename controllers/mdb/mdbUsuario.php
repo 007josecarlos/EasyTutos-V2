@@ -9,7 +9,13 @@ function autenticarUsuario($email, $contraseña){
 
 function registrarUsuario(Usuario $usuario){
     $dao=new UsuarioDAO();
-    $usuario = $dao->registrarUsuario($usuario);
+    $usuario2 = $dao->registrarUsuario($usuario);
+    return $usuario2;
+}
+
+function obtenerIdUsuario($correo){
+    $dao=new UsuarioDAO();
+    $usuario = $dao->obtenerIdUsuario($correo);
     return $usuario;
 }
 ?>

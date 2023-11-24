@@ -12,6 +12,10 @@ function guardarMateria($materia){
     $materia = $dao->guardarMateria($materia);
     return $materia;
 }
-
+function obtenerMateriaPorNombre($materia){
+    $dao=new MateriaDAO();
+    $dataMateria = $dao->obtenerMateriaPorNombre($materia);
+    return $dataMateria;
+}
 
 ?>
