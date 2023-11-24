@@ -1,9 +1,9 @@
 <?php 
-  session_start(); 
-
+session_start(); 
 ?> 
   
 <?php include 'header.php'; ?>
+
 <!-- Barra de navegación dasbohar -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container-fluid">
@@ -41,15 +41,13 @@
           </ul>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
 
-
 <!-- Título de la sección -->
-<div class="container mt-5 d-flex flex-column align-items-center">
-  <h2>Tu perfil</h2>
+<div class="container mt-5 text-center">
+  <h2 class="display-4">Tu Perfil</h2>
 </div>
 
 <div class="container mt-5 mb-5">
@@ -57,25 +55,26 @@
     <!-- Datos monitor -->
     <div class="col-sm-6">
       <h4>Nombre: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?></h4>
-      <!--<h4>Asignaturas: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['materias'];}?> </h4>-->
-      <h4>Correo electronico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
-      <h4>Numero de telefono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
-      <h4>Estado: activo</h4>
+      <h4>Correo Electrónico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
+      <h4>Número de Teléfono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
+      <h4>Estado: Activo</h4>
     </div>
     <!-- Foto monitor -->
     <div class="col-sm-6">
-      <img src="../public/img/sinImagen.png" alt="Foto del monitor" class="img-fluid"/>
+      <img src="../public/img/sinImagen.png" alt="Foto del monitor" class="img-fluid rounded shadow"/>
     </div>
   </div>
+
   <div class="container mt-5 mb-5">
-    <div class="twoButtons">
-        <button class="blue-button" onclick="window.location.href='editar_perfil_monitor.php'">Editar perfil</button>
-        <button class="orange-button">Eliminar perfil</button>
+    <div class="two-buttons">
+        <button class="btn btn-primary" onclick="window.location.href='editar_perfil_monitor.php'">Editar Perfil</button>
+        <button class="btn btn-warning">Eliminar Perfil</button>
     </div>
   </div>
+
   <div class="section-header">
     <h3>Monitorias:</h3>
-    <h2 class="plusButton" onclick="window.location.href='crear_monitoria.php'">+</h2>
+    <h2 class="plus-button" onclick="window.location.href='crear_monitoria.php'">+</h2>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
+
 <!-- Barra de navegación dasbohar -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container-fluid">
@@ -12,9 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-
-      </ul>
+      <ul class="navbar-nav me-auto"></ul>
 
       <ul class="navbar-nav ml-auto me-5">
         <li class="nav-item">
@@ -27,52 +26,64 @@
 
       <ul class="navbar-nav me-5">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://randomuser.me/api/portraits/men/94.jpg" alt="John Doe" width="40" class="border mp-1 rounded-circle">
-            Jose Caceres
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="https://randomuser.me/api/portraits/men/94.jpg" alt="John Doe" width="40"
+              class="border mp-1 rounded-circle">
+            <?php if (isset($_SESSION['usuario'])) {
+              echo $_SESSION['nombre'];
+            } ?>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Perfil</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Cerrar Sesión</a></li>
           </ul>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
 
 <!-- Título de la sección -->
-<div class="container mt-5 d-flex flex-column align-items-center">
-  <h2>Editando perfil</h2>
+<div class="container mt-5 text-center">
+  <h2 class="display-4">Editando Perfil</h2>
 </div>
 
 <div class="container mt-5 mb-5">
   <div class="row">
     <!-- Datos monitor -->
     <div class="col-sm-6">
-      <label for="name">Nombre: </label>
-      <input type="text" id="name" name="name" value=""><br><br>
-      <!-- <h4>Asignaturas: Sistemas operativos II</h4>-->
-      <h4>Correo electronico: alguien@domain.com</h4>
-      <label for="phone">Númeor de teléfono: </label>
-      <input type="text" id="phone" name="phone" value=""><br><br>
-      <h4>Estado: activo</h4>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="name" name="name" value="">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico:</label>
+        <input type="email" class="form-control" id="email" name="email" value="">
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Número de Teléfono:</label>
+        <input type="text" class="form-control" id="phone" name="phone" value="">
+      </div>
+
+      <h4>Estado: Activo</h4>
     </div>
+
     <!-- Foto monitor -->
     <div class="col-sm-6">
-      <img src="../public/img/sinImagen.png" alt="Foto de la monitoria" class="img-fluid"/>
+      <img src="../public/img/sinImagen.png" alt="Foto de la monitoria" class="img-fluid rounded shadow" />
     </div>
   </div>
+
   <div class="container mt-5 mb-5">
-    <div class="twoButtons">
-        <button class="orange-button" onclick="window.location.href='perfil_monitor.php'">Cancelar</button>
-        <button class="blue-button">Guardar cambios</button>
+    <div class="two-buttons">
+      <button class="btn btn-warning" onclick="window.location.href='perfil_monitor.php'">Cancelar</button>
+      <button class="btn btn-primary">Guardar Cambios</button>
     </div>
   </div>
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../public/Js/librerias/sweetalert2.min.js"></script>
-<!--<script src="../public/Js/librerias/jquery-3.6.0.min.js"></script>-->
 <?php include 'footer.php'; ?>

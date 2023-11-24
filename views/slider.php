@@ -15,7 +15,7 @@
             <img src="../public/img/img2.jpg" class="d-block w-100 carousel-image" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../public/img/img1.jpg" class="d-block w-100 carousel-image" alt="...">
+            <img src="../public/img/img3.jpg" class="d-block w-100 carousel-image" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">

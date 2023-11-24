@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
+
 <!-- Barra de navegación dasbohar -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container-fluid">
@@ -12,9 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-
-      </ul>
+      <ul class="navbar-nav me-auto"></ul>
 
       <ul class="navbar-nav ml-auto me-5">
         <li class="nav-item">
@@ -32,48 +31,55 @@
             <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Perfil</a></li>
             <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
           </ul>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
+
 <!-- Título de la sección -->
-<div class="container mt-5 d-flex flex-column align-items-center">
-  <h2>Titulo de monitoria</h2>
+<div class="container mt-5 text-center">
+  <h2 class="display-4">Crear Monitoría</h2>
 </div>
 
 <div class="container mt-5 mb-5">
   <div class="row">
-    <!-- Datos monitoria -->
+    <!-- Formulario de creación de monitoría -->
     <div class="col-sm-6">
       <form>
-        <!-- Sin usar <label for="title">Titulo:</label><br>
-        <input type="text" id="title" name="titulo" value="Nueva monitoria"><br><br>-->
-        <p id="correo" hidden><?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></p>
-        <label for="subject">Materia:</label><br>
-        <select id="subject" name="subject">
-          <option value="Web">Programacion web</option>
-          <option value="CalVec">Calculo diferencial</option>
-        </select><br><br>
-        <label for="time">Franja horaria:</label><br>
-        <input type="datetime-local" id="time" name="time" min="<?php date_default_timezone_set('America/Bogota'); echo date("Y-m-d\TH:i");?>"><br><br>
-        <label for="location">Ubicación:</label><br>
-        <input type="text" id="location" name="location"><br><br>
+        <div class="mb-3">
+          <label for="subject" class="form-label">Materia:</label>
+          <select id="subject" name="subject" class="form-select">
+            <option value="Web">Programación web</option>
+            <option value="CalVec">Cálculo diferencial</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="time" class="form-label">Franja horaria:</label>
+          <input type="datetime-local" id="time" name="time" min="<?php date_default_timezone_set('America/Bogota'); echo date("Y-m-d\TH:i");?>" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Ubicación:</label>
+          <input type="text" id="location" name="location" class="form-control">
+        </div>
       </form>
     </div>
+
     <!-- Foto monitoria -->
     <div class="col-sm-6">
       <img src="../public/img/sinImagen.png" alt="Foto de la monitoria" class="img-fluid"/>
     </div>
   </div>
+
   <div class="container mt-5 mb-5">
-    <div class="twoButtons">
-        <button type="button" class="blue-button" onclick="agregarMonitoria()">Guardar</button>
-        <button class="orange-button" onclick="window.location.href='perfil_monitor.php'">Cancelar</button>
+    <div class="two-buttons">
+        <button type="button" class="btn btn-primary" onclick="agregarMonitoria()">Guardar</button>
+        <button class="btn btn-warning" onclick="window.location.href='perfil_monitor.php'">Cancelar</button>
     </div>
   </div>
 </div>
@@ -81,5 +87,4 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../public/Js/logica/crearMonitoria.js"></script>
 <script src="../public/Js/librerias/sweetalert2.min.js"></script>
-<!--<script src="../public/Js/librerias/jquery-3.6.0.min.js"></script>-->
 <?php include 'footer.php'; ?>

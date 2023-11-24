@@ -1,16 +1,15 @@
-<!-- Sección de tarjetas -->
 <?php
 // Función para mostrar la lista de monitores
 function mostrarListaMonitores($monitores) {
     echo '<div class="row">';
-    foreach ($monitores as $monitores) {
-        echo '<div class="col">
-                <div class="card d-inline-block">
-                  <img src="../public/img/card1.jpeg" class="card-img-top" alt="Monitor 1">
+    foreach ($monitores as $monitor) {
+        echo '<div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                  <img src="' . $monitor['imagen'] . '" class="card-img-top rounded" alt="' . $monitor['monitor'] . '">
                   <div class="card-body">
-                    <h6 class="card-title" >Monitor:</h6>' . $monitores['monitor'] .
-                    '<h6 class="card-text">Asignaturas:</h6>' . $monitores['asignatura'] . 
-                  '<br><a href="monitor.php" class="btn btn-primary">Más información</a>
+                    <h5 class="card-title text-primary">' . $monitor['monitor'] . '</h5>
+                    <p class="card-text"><strong>Asignatura:</strong> ' . $monitor['asignatura'] . '</p>
+                    <a href="monitor.php" class="btn btn-primary">Más información</a>
                   </div>
                 </div>
               </div>';
@@ -18,13 +17,13 @@ function mostrarListaMonitores($monitores) {
     echo '</div>';
 }
 
-// Ejemplo de array de monitores
+// Ejemplo de array de monitores con imágenes diferentes
 $monitores = array(
-  array('asignatura' => 'Programación web', 'monitor' => 'Jhon Doe'),
-  array('asignatura' => 'Sistemas operativos', 'monitor' => 'Sebastian Gorge'),
-  array('asignatura' => 'Inteligencia artificial', 'monitor' => 'Gepeto')
+  array('asignatura' => 'Programación web', 'monitor' => 'Jhon Doe', 'imagen' => '../public/img/monitor1.jpeg'),
+  array('asignatura' => 'Sistemas operativos', 'monitor' => 'Sebastian Gorge', 'imagen' => '../public/img/monitor2.jpg'),
+  array('asignatura' => 'Inteligencia artificial', 'monitor' => 'Gepeto', 'imagen' => '../public/img/monitor3.jpg')
 );
 
 // Llama a la función para mostrar la lista de monitores
-  mostrarListaMonitores($monitores);
+mostrarListaMonitores($monitores);
 ?>

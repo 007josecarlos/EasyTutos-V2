@@ -1,9 +1,6 @@
-<?php 
-  session_start(); 
-
-?> 
-  
+<?php session_start(); ?>
 <?php include 'header.php'; ?>
+
 <!-- Barra de navegación dasbohar -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container-fluid">
@@ -16,9 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-
-      </ul>
+      <ul class="navbar-nav me-auto"></ul>
 
       <ul class="navbar-nav ml-auto me-5">
         <li class="nav-item">
@@ -36,8 +31,8 @@
             <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Perfil</a></li>
+            <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Cerrar Sesión</a></li>
           </ul>
         </li>
       </ul>
@@ -46,26 +41,34 @@
   </div>
 </nav>
 
-
 <!-- Título de la sección -->
 <div class="container mt-5 d-flex flex-column align-items-center">
-  <h2>Nueva Asignatura</h2>
+  <h2 class="display-4">Nueva Asignatura</h2>
 </div>
 
 <div class="container mt-5 mb-5">
-<p><b> Agregar materia </b></p>
-    <label for="materia">ingrese la nueva materia:</label>
-    <input name="materia" type="text" id="materia"  required="required"><br><br>
-    <label for="creditos">ingrese el numero de creditos de la materia:</label>
-    <input name="creditos" type="text" id="creditos"  required="required"><br><br>
-    <label for="semestre">ingrese el numero del semestre en el cual se deberia ver la materia:</label>
-    <input name="semestre" type="text" id="semestre"  required="required"><br><br>
-    <button type="button" onclick="verificarAsignatura()" class="modificarCorreo">Agregar</button><br><br>
-    <div><button type="button" onclick="window.location.href='perfilAdmin.php'" class="btn btn-primary">Regresar</button></div>
+  <p class="lead"><b>Agregar materia</b></p>
+  <form>
+    <div class="mb-3">
+      <label for="materia" class="form-label">Ingrese la nueva materia:</label>
+      <input type="text" class="form-control" id="materia" required="required">
+    </div>
+    <div class="mb-3">
+      <label for="creditos" class="form-label">Ingrese el número de créditos de la materia:</label>
+      <input type="text" class="form-control" id="creditos" required="required">
+    </div>
+    <div class="mb-3">
+      <label for="semestre" class="form-label">Ingrese el número del semestre en el cual se debería ver la materia:</label>
+      <input type="text" class="form-control" id="semestre" required="required">
+    </div>
+    <button type="button" onclick="verificarAsignatura()" class="btn btn-primary">Agregar</button><br><br>
+  </form>
+  <div>
+    <button type="button" onclick="window.location.href='perfilAdmin.php'" class="btn btn-secondary">Regresar</button>
+  </div>
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../public/Js/logica/agregarMateria.js"></script>
 <script src="../public/Js/librerias/sweetalert2.min.js"></script>
-<!--<script src="../public/Js/librerias/jquery-3.6.0.min.js"></script>-->
 <?php include 'footer.php'; ?>

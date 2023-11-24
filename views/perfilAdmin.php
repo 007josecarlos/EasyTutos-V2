@@ -1,9 +1,6 @@
-<?php 
-  session_start(); 
-
-?> 
-  
+<?php session_start(); ?>
 <?php include 'header.php'; ?>
+
 <!-- Barra de navegación dasbohar -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container-fluid">
@@ -16,9 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-
-      </ul>
+      <ul class="navbar-nav me-auto"></ul>
 
       <ul class="navbar-nav ml-auto me-5">
         <li class="nav-item">
@@ -36,35 +31,32 @@
             <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-fw"></i> Perfil</a></li>
+            <li><a class="dropdown-item" href="../controllers/accion/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-fw"></i> Cerrar Sesión</a></li>
           </ul>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
 
-
 <!-- Título de la sección -->
-<div class="container mt-5 d-flex flex-column align-items-center">
-  <h2>Tu perfil</h2>
+<div class="container mt-5 text-center">
+  <h2 class="display-4">Tu Perfil</h2>
 </div>
 
 <div class="container mt-5 mb-5">
   <div class="row">
-    <!-- Datos monitor -->
+    <!-- Datos del monitor -->
     <div class="col-sm-6">
       <h4>Nombre: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['nombre'];}?></h4>
-      <h4>Correo electronico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
-      <h4>Numero de telefono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
-      <button type="button" onclick="window.location.href='agregarMateria.php'" class="btn btn-primary">Agregar materia</button><br><br>
+      <h4>Correo Electrónico: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></h4>
+      <h4>Número de Teléfono: <?php if (isset($_SESSION['usuario'])){ echo $_SESSION['telefono'];}?></h4>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='agregarMateria.php'">Agregar Materia</button><br><br>
     </div>
-    
+  </div>  
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../public/Js/librerias/sweetalert2.min.js"></script>
-<!--<script src="../public/Js/librerias/jquery-3.6.0.min.js"></script>-->
 <?php include 'footer.php'; ?>
